@@ -1,0 +1,67 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Mobile"
+    },
+    {
+      "id": 2,
+      "name": "Labtop"
+    }
+  ],
+  "products": [
+    {
+      "categoryId": 2,
+      "id": 1,
+      "name": "Hp",
+      "quantity": 5,
+      "price": 3000,
+      "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+      "categoryName": "Labtop"
+    },
+    {
+      "categoryId": 1,
+      "id": 2,
+      "name": "Iphone",
+      "quantity": 0,
+      "price": 3000,
+      "img": "https://thumbs.dreamstime.com/z/cropped-shot-top-view-businessman-hands-using-smartphone-mockup-office-desk-blank-screen-mobile-phone-graphic-display-153602497.jpg",
+      "categoryName": "Mobile"
+    },
+    {
+      "categoryId": 2,
+      "id": 3,
+      "name": "DellModifed",
+      "quantity": 0,
+      "price": 3000,
+      "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+      "categoryName": "Labtop"
+    },
+    {
+      "categoryId": 1,
+      "id": 4,
+      "name": "Samsung",
+      "quantity": 5,
+      "price": 3000,
+      "img": "https://thumbs.dreamstime.com/z/cropped-shot-top-view-businessman-hands-using-smartphone-mockup-office-desk-blank-screen-mobile-phone-graphic-display-153602497.jpg",
+      "categoryName": "Mobile"
+    },
+    {
+      "categoryId": 2,
+      "id": 5,
+      "name": "Lenovo",
+      "quantity": 5,
+      "price": 3000,
+      "img": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+      "categoryName": "Labtop"
+    },
+    {
+      "id": 10,
+      "name": "addedProduct",
+      "quantity": 5,
+      "price": 2500,
+      "img": "lk"
+    }
+  ],
+  "cart": []
+}

@@ -1,0 +1,61 @@
+<div class="container mt-2">
+  <div class="mb-3 row">
+    <form #formValid="ngForm" (ngSubmit)="addProduct()">
+      <div class="col-sm-10 mb-2">
+        <select class=" mb-2 form-select w-25" [(ngModel)]="newProduct.categoryId" required>
+          <option [value]=" item.id" *ngFor="let item of categories">
+            {{item.id}}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm-10 mb-2">
+        <input type="number" #idValidation="ngModel" class="form-control w-25" min="1" name="ID" [(ngModel)]="newProduct.id" id="id"
+          placeholder="ID" required>
+          <div class="text-danger" [hidden]="idValidation.valid || idValidation.untouched">
+            <span  *ngIf="idValidation.errors?.['required']"> ID is required</span>
+          </div>
+      </div>
+      <div class="col-sm-10 mb-2">
+        <input #nameValidation="ngModel" type="text" class="form-control w-25" [(ngModel)]="newProduct.name" name="Name"
+          id="id" placeholder="Name" required  pattern="[A-Za-z]{4,}">
+        <div class="text-danger" [hidden]="nameValidation.valid || nameValidation.untouched">
+          <span  *ngIf="nameValidation.errors?.['required']"> Name is required</span>
+          <span *ngIf="nameValidation.errors?.['pattern']"> Name must be more than 4 letters</span>
+        </div>
+      </div>
+      <div class="col-sm-10 mb-2">
+        <input type="number" class="form-control w-25" min="0" max="5" #qyValidation="ngModel" [(ngModel)]="newProduct.quantity" id="id" name="Quantity"
+          placeholder="Quantity" required>
+          <div class="text-danger" [hidden]="qyValidation.valid || qyValidation.untouched">
+            <span  *ngIf="qyValidation.errors?.['required']"> Quantity is required</span>
+            <span *ngIf="qyValidation.errors?.['max']"> Max Quantity is 5</span>
+            <span *ngIf="qyValidation.errors?.['min']"> Quantity must be more than 0</span>
+
+          </div>
+      </div>
+      <div class="col-sm-10 mb-2">
+        <input type="number" class="form-control w-25" min="0" #prValidation="ngModel" [(ngModel)]="newProduct.price" id="id" name="Price"
+          placeholder="Price" required>
+          <div class="text-danger" [hidden]="prValidation.valid || prValidation.untouched">
+            <span  *ngIf="prValidation.errors?.['required']"> Price is required</span>
+            <span *ngIf="prValidation.errors?.['min']"> Price must be more than 0</span>
+          </div>
+      </div>
+      <div class="col-sm-10 mb-2">
+        <input type="text" #imgValidation="ngModel" class="form-control w-25" [(ngModel)]="newProduct.img" id="id" name="img" placeholder="img" required>
+        <div class="text-danger" [hidden]="imgValidation.valid || imgValidation.untouched">
+          <span  *ngIf="imgValidation.errors?.['required']"> img is required</span>
+        </div>
+      </div>
+      <div class="col-sm-10 mb-2">
+        <select class=" mb-2 form-select w-25"  [(ngModel)]="newProduct.categoryName" required>
+          <option [value]=" item.id" *ngFor="let item of categories">
+            {{item.name}}
+          </option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="formValid.invalid" class="btn btn-outline-dark ">Add Product</button>
+    </form>
+  </div>
+</div>
+

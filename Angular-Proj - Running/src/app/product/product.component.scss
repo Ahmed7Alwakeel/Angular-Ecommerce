@@ -1,0 +1,18 @@
+.card{
+    
+    box-shadow:0 5px 20px 0 rgb(214, 211, 211);
+    overflow: hidden;
+}
+.card>img{
+    transition: 1s all;
+    cursor: pointer;
+}
+.card>img:hover{
+    transform: scale(1.05);
+    transition: 1s all;
+}
+
+.title{
+    font-size: 14px;
+    
+}

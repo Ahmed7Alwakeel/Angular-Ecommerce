@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 ">
+      <h3 class="text-decoration-underline">{{storeInfo.name}}</h3>
+      <img [src]="storeInfo.imgURL" style="width: 100px;height: auto;">
+    </div>
+    <!-- date piping -->
+    <h3 class="mt-2 mb-3">{{discounut}} Till {{date | date}}</h3>
+    <div class="col-md-12">
+      <h5 class="d-inline-block">Our Categories</h5>
+      <!-- Templete Variable -->
+      <select #cat class=" mb-2 form-select w-25" [(ngModel)]="selectedCatId">
+        <!-- <option>Category</option> -->
+        <option value="0">All Categoris</option>
+        <option [value]=" item.id" *ngFor="let item of categories">
+          {{item.name}}
+        </option>
+      </select>
+      <!-- propert binding -->
+      <h5 [class.d-none]="cat.value=='Category'">Category Number: {{selectedCatId}}</h5>
+    </div>
+  </div>
+</div>
+<hr>
+<hr>
+
+
+<div>
+  <app-product [recivedCatId]="selectedCatId" (collectedPrice)="getPrice($event)" (cartProducts)="addCart($event)">
+  </app-product>
+</div>
+
+
+<hr>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">img</th>
+      <th scope="col">Name</th>
+      <th scope="col">available Qyt</th>
+      <th scope="col">Last Qyt</th>
+      <th scope="col">Price</th>
+      <th scope="col">Total Price</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pro of recviedCart,let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td><img [src]="pro.img" height="50px"></td>
+      <td>{{pro.name}}</td>
+      <td>{{pro.quantity}}</td>
+      <td><input #counter [max]="pro.quantity" [(ngModel)]="pro.count" min="0" type="number" class="form-control w-50">
+      </td>
+      <td>{{pro.price}}</td>
+      <td>{{pro.price*+counter.value}}</td>
+      <td><button class="btn btn-danger me-2"  (click)="buyProduct(pro.id,pro.price,counter.value)">Buy</button>
+        <button class="btn btn-danger" (click)="removeProduct(pro.id,counter.value,pro.price)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="shadow-lg p-3 mb-2 bg-body rounded mt-5">Total Order: <strong>{{orderPrice}}</strong></div>
+<button class="btn btn-success ms-2 mb-5" [disabled]="orderPrice==0" (click)="confirmOrder()">Confrim Order</button>
+

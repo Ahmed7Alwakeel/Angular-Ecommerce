@@ -1,0 +1,15 @@
+<div class="card m-2" style="width: 30%;">
+    <img [src]="products?.img" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{products?.name}}</h5>
+      <div class="card-text">
+        <div>Price: {{products?.price}}</div>
+        <div>Quantity: {{products?.quantity}}</div>
+        <button [disabled]="selectedProductId==collectId[0]" type="button" class="btn btn-danger mt-2 me-2 mb-2" 
+        (click)="prevProduct()">Previous Product</button>
+        <button [disabled]="selectedProductId==collectId[collectId.length-1]" type="button" 
+        class="btn btn-success mt-2 me-2 mb-2" (click)="nextProduct()">Next Product</button>
+        <button type="button" class="btn btn-warning" 
+        (click)="goBack()">Back</button>
+      </div>
+     
